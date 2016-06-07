@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\n\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n  # Application title\n  titlePanel(\"Printing and Mailing Cost Calculator\"),\n  \n  # Sidebar\n  sidebarLayout(\n    sidebarPanel(\n      selectInput(\n        \"envelopeType\", label = \"Envelope Type\",\n        choices = list(\"6x9\", \"#10\"),\n        selected = \"6x9\"\n      ),\n      \n      sliderInput(\n        \"numPackages\",\n        \"Number of Packages:\",\n        min = 1,\n        max = 10000,\n        value = 1000\n      ),\n      \n      sliderInput(\n        \"numAdditionalPages\",\n        \"Number of Additional Pages:\",\n        min = 1,\n        max = 10000,\n        value = 1000\n      )\n    ),\n    \n    # Show a plot of the generated distribution\n    mainPanel(tabsetPanel(\n      tabPanel(\n        \"Output\",\n        h4(\"Envelope type selected:\"),\n        verbatimTextOutput(\"oenvelopeType\"),\n        h4(\"Number of packages:\"),\n        verbatimTextOutput(\"onumPackages\"),\n        h4(\"Number of additional pages:\"),\n        verbatimTextOutput(\"onumAdditionalPages\"),\n        h4(\"Total cost:\"),\n        verbatimTextOutput(\"ototalCost\")\n      ),\n      tabPanel(\n        \"About\",\n        p(\n          \"This Shiny application can be used to calculate the printing and mailing costs\n          to be charged by the firm XYZ Mailings to mail a set of packages.\n          In the side panel to the left, select the envelope type (6x9 envelopes or #10\n          envelopes), the number of packages and the number of additional pages. Note\n          that 'additional pages' are any pages in a package beyond the first page. So,\n          the value for 'additional pages' is calculated as the total number of pages\n          minus the number of packages.\"\n        ),\n        \n        p(\n          \"The ui.R and server.R files can be found in the following repository:\"\n        ),\n        \n        a(href=\"https://github.com/thomaswire/Printing_and_mailing_cost_calc.git\", \"GitHub repository for Printing and Mailing Cost Calculator\")\n      )\n      \n        ))\n    )\n      ))\n",
+    "created" : 1465241149552.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2110019344",
+    "id" : "91E99431",
+    "lastKnownWriteTime" : 1465306834,
+    "path" : "~/Printing_and_mailing_cost_calc/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

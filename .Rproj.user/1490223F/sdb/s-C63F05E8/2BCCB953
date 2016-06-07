@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n  output$oenvelopeType <- renderPrint({input$envelopeType})\n  output$onumPackages <- renderPrint({input$numPackages})\n  output$onumAdditionalPages <- renderPrint({input$numAdditionalPages})\n  output$ototalCost <- renderPrint({totalCost(input$envelopeType, input$numPackages, input$numAdditionalPages)})\n  \n})\n\ntotalCost <- function(envelopeType, numPackages, numAdditionalPages) {\n  if (envelopeType == \"6x9\") {\n    costForPackages <- numPackages * 0.279\n    costForAdditionalPages <- (numAdditionalPages) * 0.029\n    return(costForPackages + costForAdditionalPages)\n  } else {\n    costForPackages <- numPackages * 0.179\n    costForAdditionalPages <- (numAdditionalPages) * 0.029\n    return(costForPackages + costForAdditionalPages)\n  }\n}\n",
+    "created" : 1465241150193.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3468878059",
+    "id" : "2BCCB953",
+    "lastKnownWriteTime" : 1465303441,
+    "path" : "~/Printing_and_mailing_cost_calc/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
